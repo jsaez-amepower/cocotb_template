@@ -9,11 +9,11 @@ widthp ?= 36
 pipeline ?= 6
 us ?= 1
 
-VERILOG_SOURCES = multiplier.v
+VERILOG_SOURCES = hdl.v
 # use VHDL_SOURCES for VHDL files
 
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
-TOPLEVEL = multiplier
+TOPLEVEL = hdl_name
 
 # MODULE is the basename of the Python test file
 MODULE = tester
