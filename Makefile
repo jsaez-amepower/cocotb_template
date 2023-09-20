@@ -3,17 +3,15 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 
-widtha ?= 18
-widthb ?= 18
-widthp ?= 36
-pipeline ?= 6
-us ?= 1
+DW ?= 32
+log2_samples ?= 8
+US ?= 1
 
-VERILOG_SOURCES = hdl.v
+VERILOG_SOURCES = MovingAvg.v
 # use VHDL_SOURCES for VHDL files
 
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
-TOPLEVEL = hdl_name
+TOPLEVEL = MovingAvg
 
 # MODULE is the basename of the Python test file
 MODULE = tester
@@ -22,6 +20,6 @@ MODULE = tester
 SIM_ARGS=-l$(TOPLEVEL)_stdout.log
 
 # Parameters for the Verilog file
-COMPILE_ARGS += -P$(TOPLEVEL).widtha=$(widtha) -P$(TOPLEVEL).widthb=$(widthb) -P$(TOPLEVEL).widthp=$(widthp) -P$(TOPLEVEL).pipeline=$(pipeline) -P$(TOPLEVEL).us=$(us)
+COMPILE_ARGS += -P$(TOPLEVEL).DW=$(DW) -P$(TOPLEVEL).log2_samples=$(log2_samples) -P$(TOPLEVEL).US=$(US)
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
